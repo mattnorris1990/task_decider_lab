@@ -18,12 +18,22 @@ class TestTaskDecider(unittest.TestCase):
 
         self.task_1 = Task(self.task_list[0]["name"], self.task_list[0]["duration"])
         self.task_2 = Task(self.task_list[1]["name"], self.task_list[1]["duration"])
+        self.task_3 = Task(self.task_list[2]["name"], self.task_list[2]["duration"])
 
-    def test_function_returns_task_name(self):
-        self.assertEqual("Wash the Dishes", self.task_1.name)
+    # def test_function_returns_task_name(self):
+    #     self.assertEqual("Wash the Dishes", self.task_1.name)
 
-    def test_function_returns_task_duration(self):
-        self.assertEqual(.25, self.task_1.duration)
+    # def test_function_returns_task_duration(self):
+    #     self.assertEqual(.25, self.task_1.duration)
 
-    def test_module_returns_task(self):
-        self.assertEqual("Wash the Dishes", get_preferred_option(self.task_1.name, self.task_2.name))
+    # def test_module_returns_task(self):
+    #     self.assertEqual("Wash the Dishes", get_preferred_option(self.task_1.name, self.task_2.name))
+
+    # def test_module_returns_tasks(self):
+    #     self.assertEqual(("Wash the Dishes", "Cook Dinner"), get_preferred_option(self.task_1.name, self.task_2.name))
+
+    def test_wash_dishes_cook_dinner(self):
+        self.assertEqual("Wash the Dishes", get_preferred_option(self.task_1, self.task_2))
+
+    def test_wash_dishes_clean_windows(self):
+        self.assertEqual("Clean Windows", get_preferred_option(self.task_1, self.task_3))
